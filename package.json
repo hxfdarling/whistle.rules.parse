@@ -1,0 +1,77 @@
+{
+  "name": "whistle.rules.parse",
+  "version": "1.0.0",
+  "description": "解析whistle规则",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "test:w": "jest --watchAll",
+    "lint:style": "stylelint --fix src/**/*.{less,scss,css}",
+    "lint:js": "eslint --fix src --ext .js,.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hxfdarling/whistle.rules.parse.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hxfdarling/whistle.rules.parse/issues"
+  },
+  "homepage": "https://github.com/hxfdarling/whistle.rules.parse#readme",
+  "lint-staged": {
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{css,less,scss}": [
+      "prettier --write",
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{jsx,js}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "querystring": "^0.2.0"
+  },
+  "devDependencies": {
+    "@a8k/changelog": "^2.1.5",
+    "@commitlint/cli": "^8.2.0",
+    "babel-eslint": "^10.0.3",
+    "commitizen": "^4.0.3",
+    "commitlint-config-cz": "^0.12.1",
+    "cz-customizable": "^6.2.0",
+    "eslint": "^6.4.0",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "stylelint": "^11.0.0",
+    "stylelint-config-css-modules": "^1.5.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.11.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "node_modules/@a8k/changelog/cz-config.js"
+    }
+  }
+}
